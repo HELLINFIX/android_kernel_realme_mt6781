@@ -324,12 +324,7 @@ static long seninf_ioctl(struct file *pfile,
 // 			ret = ERROR_TEE_CA_TA_FAIL;
 // 		break;
 // #endif
-	case KDSENINFIOC_SET_CAM_MUX_FOR_SWITCH:
-#ifdef _CAM_MUX_SWITCH
-		ret = _seninf_set_tg_for_switch(
-			(*(unsigned int *)pbuff) >> 16, (*(unsigned int *)pbuff) & 0xFFFF);
-#endif
-		break;
+
 	default:
 		PK_DBG("No such command %d\n", cmd);
 		ret = -EPERM;
